@@ -2,12 +2,17 @@ var MyBlock = React.createClass({
 
   getInitialState: function(){
     return {
+      jokeText: null
     }
   },
 
   fetchJoke: function(){
+    var _this = this;
     $.getJSON('http://api.icndb.com/jokes/random', function(data){
-      console.log(data);
+
+      var jokeText = data.value.joke;
+      _this.setState({jokeText: jokeText});
+
     }) 
   },
 
@@ -19,7 +24,7 @@ var MyBlock = React.createClass({
 
     return (
       <div >
-        <h2>I'm a placeholder</h2>
+        <h2>{this.state.jokeText}</h2>
       </div>
     )
 
