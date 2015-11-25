@@ -5,7 +5,9 @@ var MyBlock = React.createClass({
     }
   },
 
-
+  componentDidMount: function(){
+    alert(); 
+  },
 
   render: function(){
 
