@@ -15,6 +15,9 @@ var MyBlock = React.createClass({
 
     }) 
   },
+  refreshJoke: function(){
+    this.fetchJoke();
+  },
 
   componentDidMount: function(){
     this.fetchJoke();
@@ -25,6 +28,7 @@ var MyBlock = React.createClass({
     return (
       <div >
         <h2>{this.state.jokeText}</h2>
+        <button onClick={this.refreshJoke}>Refresh</button>
       </div>
     )
 
