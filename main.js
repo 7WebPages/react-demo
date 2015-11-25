@@ -1,4 +1,13 @@
+var MyBlock = React.createClass({
+  render: function(){
+    return (
+      <h2>Hello, world from component!</h2>
+    )
+  }
+});
+
+
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <MyBlock />,
   document.getElementById('content')
 );
