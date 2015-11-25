@@ -1,3 +1,12 @@
+
+var AnotherBlock = React.createClass({
+  render: function(){
+  
+    return (<span>I'm another component, I already know this joke too: {this.props.joke}</span>)
+  }
+});
+
+
 var MyBlock = React.createClass({
 
   getInitialState: function(){
@@ -42,6 +51,9 @@ var MyBlock = React.createClass({
         {loadingNode}
 
         <h2>{this.state.jokeText}</h2>
+
+        <hr />
+        <AnotherBlock joke={this.state.jokeText} />
       </div>
     )
 
