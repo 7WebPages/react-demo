@@ -7,28 +7,23 @@ var MyBlock = React.createClass({
   },
 
   handleClick: function(){
-    this.setState({isExpanded: true});
+    this.setState({isExpanded: !this.state.isExpanded});
   },
 
   render: function(){
-    var _this = this;
-    var shortContent =  (
+
+    var extraContent = null;
+    if(this.state.isExpanded){
+      extraContent = (<p>Some long description</p>);
+    }
+
+    return (
       <div onClick={this.handleClick}>
         <h2>Hello, world from component!</h2>
-      </div>
-    )
-    var fullContent = (
-      <div>
-        <h2>Hello, world from component!</h2>
-        <p>Some long description</p>
+        {extraContent}
       </div>
     )
 
-    if(this.state.isExpanded){
-      return fullContent;
-    }else{
-      return shortContent;
-    }
   }
 
 });
