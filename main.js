@@ -2,17 +2,19 @@ var MyBlock = React.createClass({
 
   getInitialState: function(){
     return {
-      jokeText: null
+      jokeText: null,
+      isLoading: false
     }
   },
 
   fetchJoke: function(){
     var _this = this;
-    _this.setState({jokeText: 'Loading..'});
+    this.setState({isLoading: true});
     $.getJSON('http://api.icndb.com/jokes/random', function(data){
 
       var jokeText = data.value.joke;
       _this.setState({jokeText: jokeText});
+      _this.setState({isLoading: false});
 
     }) 
   },
@@ -26,10 +28,16 @@ var MyBlock = React.createClass({
 
   render: function(){
 
+    var loadingNode = null;
+    if(this.state.isLoading){
+      loadingNode = (<img src="ajax-loader.gif" />);
+    }
+
     return (
       <div >
         <h2>{this.state.jokeText}</h2>
         <button onClick={this.refreshJoke}>Refresh</button>
+        {loadingNode}
       </div>
     )
 
