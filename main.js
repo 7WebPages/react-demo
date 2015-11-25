@@ -5,8 +5,14 @@ var MyBlock = React.createClass({
     }
   },
 
+  fetchJoke: function(){
+    $.getJSON('http://api.icndb.com/jokes/random', function(data){
+      console.log(data);
+    }) 
+  },
+
   componentDidMount: function(){
-    alert(); 
+    this.fetchJoke();
   },
 
   render: function(){
