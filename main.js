@@ -35,9 +35,13 @@ var MyBlock = React.createClass({
 
     return (
       <div >
-        <h2>{this.state.jokeText}</h2>
-        <button onClick={this.refreshJoke}>Refresh</button>
+
+        <button className="btn btn-lg" onClick={this.refreshJoke}>
+          Refresh
+        </button>
         {loadingNode}
+
+        <h2>{this.state.jokeText}</h2>
       </div>
     )
 
